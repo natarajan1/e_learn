@@ -1,9 +1,12 @@
 <h1>Categories - all categories</h1>
-<% @category.each do |category| %>
 
+
+<% @category.each do |category| %>
+<%= link_to "Edit",edit_category_path(category) %>
+<%= link_to "Delete", category,method: :delete, data: {confirm: "You Sure"},title: category.category_name %>
 <%= category.category_name %>
 <br/>
 <br/>
-<br/>
+
 
 <% end %>

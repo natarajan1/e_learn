@@ -41,4 +41,10 @@ class CategoriesController < ApplicationController
   def index
   	@category=Category.all
   end
+
+  def destroy
+    Category.find(params[:id]).destroy
+    flash[:success] = "Successfully deleted..."
+    redirect_to categories_url
+  end
 end
