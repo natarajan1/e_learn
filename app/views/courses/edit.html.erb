@@ -5,7 +5,7 @@
 <%= form_for(@course) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-
+<%= f.select :category_id, Category.find(:all).collect{|c| [c.category_name, c.id]}, :prompt => "Pick a Category" %>
 <%= f.label :course_name %>
 <%= f.text_field :course_name %>
 <%= f.label :course_description %>

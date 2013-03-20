@@ -6,7 +6,10 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-		@course=Course.new(params[:course])
+
+		@category=Category.find(params[:id])
+   @course = @category.courses.build(params[:course])
+		#@course=Course.new(params[:course])
 		if @course.save
 			flash[:success]="Course added Successfully. "
 			redirect_to @course
