@@ -1,0 +1,9 @@
+<% @course.each do |course| %>
+<%= link_to "Edit", edit_course_path(course) %>
+<%= link_to "Delete", course, method: :delete %>
+<%= course.course_name %>
+<%= course.course_description %>
+<%= course.tutor %>
+<br/>
+<% end %>
+

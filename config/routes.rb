@@ -1,8 +1,21 @@
 ELearn::Application.routes.draw do
 
+
+
   devise_for :users
   resources  :users
+  resources  :courses
+  resources  :categories
+  
+  root             :to =>'screens#home'
 
+
+  match '/help',   :to => 'screens#help'
+  match '/about',  :to  =>'screens#about'
+  match '/contact', :to  =>'screens#contact'
+ # match '/rate' => 'rater#create', :as => 'rate'
+  match '/auth/:provider/callback', to: 'authentication#create'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

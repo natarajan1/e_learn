@@ -6,6 +6,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:image,:phone,:provider
   # attr_accessible :title, :body
+  has_many :authentication, :dependent => :delete_all
+
+  
+ 
+  def apply_omniauth(auth)
+	  # In previous omniauth, 'user_info' was used in place of 'raw_info'
+    self.email    = auth['info']['email']
+    self.name     = auth['info']['name']
+    self.image    = auth['info']['image']
+    self.phone    = auth['info']['phone']
+    self.provider = auth['provider']
+	  # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
+	  authentication.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+	end
 end

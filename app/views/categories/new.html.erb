@@ -1,0 +1,8 @@
+<h1>Categories - create</h1>
+
+<%= form_for(@category) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= f.label :category_name %>
+<%= f.text_field :category_name %>
+<%= f.submit "Submit" %>
+<% end %>
