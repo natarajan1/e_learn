@@ -1,13 +1,13 @@
 ELearn::Application.routes.draw do
 
 
-
+root             :to =>'screens#home'
   devise_for :users
   resources  :users
   resources  :courses
   resources  :categories
   
-  root             :to =>'screens#home'
+  
 
 
   match '/help',   :to => 'screens#help'
