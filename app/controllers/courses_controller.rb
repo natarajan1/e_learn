@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
-	before_filter :authenticate_user!, only:[:create, :edit, :update ,:destroy]
-	
+	#before_filter :authenticate_user!, only:[:create, :edit, :update ,:destroy]
+	 before_filter :admin_user_check, :only => [:new, :edit, :create, :destroy]
 	def new
 		@course=Course.new
 	end
@@ -50,5 +50,7 @@ class CoursesController < ApplicationController
 		redirect_to courses_url
 	end
 
+
+  
 
 end

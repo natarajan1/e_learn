@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-	before_filter :authenticate_user!, only:[:create,:edit,:update,:delete]
+	#before_filter :authenticate_user!, only:[:create,:edit,:update,:delete]
+   before_filter :admin_user_check, :only => [:new, :edit, :create, :destroy]
   def new
   	@category=Category.new
   end
@@ -47,4 +48,7 @@ class CategoriesController < ApplicationController
     flash[:success] = "Successfully deleted..."
     redirect_to categories_url
   end
+
+
+ 
 end

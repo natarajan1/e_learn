@@ -1,6 +1,8 @@
 <% @course.each do |course| %>
+<% if current_user.admin? %>
 <%= link_to "Edit", edit_course_path(course) %>
 <%= link_to "Delete", course, method: :delete, data: {confirm: "You Sure"}, title: course.course_name %>
+<% end %>
 <%= course.course_name %>
 <%= course.course_description %>
 <%= course.tutor %>

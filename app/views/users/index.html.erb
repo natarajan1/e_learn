@@ -1,6 +1,17 @@
 <% @user.each do |user| %>
-<%= link_to "Edit", edit_user_registration_path %>
+
+<% if current_user.admin? %>
+<% if user.name==current_user.name %>
+<%= link_to "Edit", edit_user_registration_path(user) %>
+<% else %>
+<%= link_to "Edit", edit_user_path(user) %>
+<% end %>
+<%= link_to "Delete", user, method: :destroy, data: {confirm: "You Sure"} %>
+<% end %>
+
 <%= user.email %>
 <%= user.name %>
 <br>
 <% end %>
+
+
