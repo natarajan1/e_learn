@@ -6,7 +6,8 @@
 <% else %>
 <%= link_to "Edit", edit_user_path(user) %>
 <% end %>
-<%= link_to "Delete", user, method: :destroy, data: {confirm: "You Sure"} %>
+<%= link_to "Delete", user, method: :Delete, data: {confirm: "You Sure"} %>
+
 <% end %>
 
 <%= user.email %>
