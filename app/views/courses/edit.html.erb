@@ -12,7 +12,10 @@
 <%= f.text_field :course_description %>
 <%= f.label :tutor %>
 <%= f.text_field :tutor %>
+<%= image_tag("/uploads/#{@course.course_image}", :size => "50x100") %>
 
+
+<%= f.file_field :course_image %>
 <%= f.submit 'Update', class: "btn btn-submit btn-primary" %>
 <% end %>
 </div></div>
