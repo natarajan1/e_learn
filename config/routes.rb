@@ -2,6 +2,7 @@ ELearn::Application.routes.draw do
 
 
 root             :to =>'screens#home'
+devise_for :users, :controllers => {:registrations => "registrations"}
   devise_for :users
   resources  :users
   resources  :courses

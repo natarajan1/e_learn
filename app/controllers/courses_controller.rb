@@ -6,11 +6,9 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-
 		#log=Logger.new("./test.Logger")
     #log.debug "mani"
     #log.debug params[:id]
-
     @category=Category.find(params[:id])
     @course = @category.courses.build(params[:course])
 		#@course=Course.new(params[:course])
@@ -32,6 +30,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course=Course.find(params[:id])
+		
 	end
 
 	def edit
@@ -78,8 +77,5 @@ class CoursesController < ApplicationController
 		flash[:success] = "Successfully Deleted..."
 		redirect_to courses_url
 	end
-
-
-
 
 end
